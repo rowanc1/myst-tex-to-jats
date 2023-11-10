@@ -1,0 +1,83 @@
+\documentclass{article}
+
+% Title and Author Information
+\title{A Simple LaTeX Article!!}
+\author{Rowan Cockett\thanks{rowan@curvenote.com}}
+
+\newcommand{\dobs}{\bm{d}_\text{obs}}
+\newcommand{\dpred}{\mathbf{d}_\text{pred}\left( #1 \right)}
+\newcommand{\mref}{\bm{m}_\text{ref}}
+
+\begin{document}
+
+\maketitle
+
+% Abstract
+\begin{abstract}
+This is a simple LaTeX document showcasing the basic structure of an article. It includes a title, author information, abstract, and body. LaTeX is a typesetting system commonly used for the production of scientific and mathematical documents due to its powerful features for handling complex formatting.
+
+You can parse and render this in MyST.
+\end{abstract}
+
+% Body of the Article
+\section{Introduction}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae justo et orci euismod fringilla.
+Including latex citations \citep{smith2010}.
+
+\section{Methodology}
+Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+
+In (\ref{maxwell}) we can see some equations for light!
+
+The residual is the predicted data for the model, $\dpred{m}$, minus the observed data, $\dobs$. You can also calculate the predicted data for the reference model $\dpred{\mref}$.
+
+$$
+\label{maxwell}
+\begin{aligned}
+\nabla \times \vec{e}+\frac{\partial \vec{b}}{\partial t}&=0 \\
+\nabla \times \vec{h}-\vec{j}&=\vec{s}\_{e}
+\end{aligned}
+$$
+
+\section{Results}
+Nulla facilisi. Duis tristique, velit et euismod cursus, augue metus feugiat velit, et tincidunt elit nulla a velit.
+
+You can see in \autoref{fig:example} and in \autoref{tab:sample}, that cross references work.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.8\linewidth]{image.png}
+  \caption{Example Figure}
+  \label{fig:example}
+\end{figure}
+
+
+\begin{table}[h]
+  \centering
+  \caption{Sample Table}
+  \label{tab:sample}
+  \begin{tabular}{|c|l|r|}
+    \hline
+    \textbf{ID} & \textbf{Name} & \textbf{Score} \\
+    \hline
+    1 & John Doe & 85 \\
+    2 & Jane Smith & 92 \\
+    3 & Bob Johnson & 78 \\
+    \hline
+  \end{tabular}
+\end{table}
+
+Some commands that are helpful are:
+
+\begin{verbatim}
+myst build main.tex --jats -o article.xml
+\end{verbatim}
+
+\section{Conclusion}
+In conclusion, this example serves as a starting point for creating your LaTeX articles. Feel free to explore additional features and packages to enhance the formatting and appearance of your documents.
+
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}
